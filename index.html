@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b25">
+<title>Đại Project</title>
+<style>
+:root{--cyan:#69dcff;--violet:#8d75ff;--glass:rgba(255,255,255,.13);--line:rgba(255,255,255,.38)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:#fff;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:#080b25;overflow-x:hidden}
+#space{position:fixed;inset:-8%;z-index:-2;background:
+ radial-gradient(ellipse at 18% 25%,rgba(31,95,190,.48),transparent 34%),
+ radial-gradient(ellipse at 78% 18%,rgba(117,47,166,.4),transparent 32%),
+ radial-gradient(ellipse at 65% 78%,rgba(14,135,174,.27),transparent 36%),
+ linear-gradient(135deg,#080b25 0%,#15113d 48%,#07172d 100%);
+ transform:translate3d(0,0,0) scale(1.08);transition:transform .18s ease-out}
+#stars,#stars:before,#stars:after{position:absolute;inset:0;content:"";background-image:radial-gradient(2px 2px at 20px 30px,#fff 55%,transparent 60%),radial-gradient(1px 1px at 90px 80px,#a9dfff 55%,transparent 60%),radial-gradient(1.5px 1.5px at 160px 140px,#fff 55%,transparent 60%),radial-gradient(1px 1px at 230px 40px,#b9aaff 55%,transparent 60%);background-size:280px 190px;opacity:.58;animation:drift 38s linear infinite}
+#stars:before{transform:translateY(-100%);opacity:.5}#stars:after{background-size:390px 270px;opacity:.3;animation-duration:65s}
+@keyframes drift{to{transform:translateY(190px)}}
+.glow{position:fixed;width:380px;height:380px;border-radius:50%;filter:blur(100px);opacity:.22;z-index:-1;pointer-events:none;background:#287aff;left:-150px;top:45%}
+header{display:flex;justify-content:center;padding:28px 16px 8px}
+.brand{display:flex;align-items:center;gap:13px;font-weight:850;font-size:clamp(24px,4vw,36px);letter-spacing:-1px;text-shadow:0 5px 25px #0008}
+.brand img{width:54px;height:54px;object-fit:cover;border-radius:50%;border:2px solid #a8eaff;box-shadow:0 0 25px #49caff88}
+main{width:min(1050px,92vw);margin:25px auto 70px}
+.hero{width:min(510px,100%);margin:18px auto 48px;padding:34px 24px 30px;text-align:center;border:1px solid var(--line);border-radius:34px;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.07));backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 25px 80px #0006,inset 0 1px 1px #fff8}
+.hero-logo{width:116px;height:116px;border-radius:50%;object-fit:cover;border:4px solid #b9efff;box-shadow:0 0 35px #45caff88;margin:0 auto 16px}
+h1{margin:0;font-size:clamp(27px,5vw,36px);letter-spacing:-1px}
+.verified{display:inline-grid;place-items:center;margin-left:7px;width:22px;height:22px;border-radius:50%;font-size:14px;background:#159ef5;vertical-align:middle}
+.tagline{color:#e5e8f5;margin:12px 0 24px;font-size:17px}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.social{display:inline-flex;align-items:center;gap:9px;padding:12px 19px;border:1px solid #ffffff80;border-radius:999px;background:#ffffff22;color:#fff;text-decoration:none;font-weight:750;box-shadow:0 8px 25px #0003;transition:.2s}
+.social:hover,.tile:hover{transform:translateY(-4px);background:#ffffff30}
+.social .ico{font-size:19px}.tg{color:#5ccaff}.tt{color:#ff668c}.fb{color:#79aaff}
+.section-title{text-align:center;font-size:22px;margin:0 0 18px}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.tile{min-height:132px;display:flex;align-items:center;gap:15px;padding:17px;border:1px solid var(--line);border-radius:25px;background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 15px 45px #0004;text-decoration:none;color:#fff;transition:transform .22s,background .22s;overflow:hidden}
+.tile img{width:68px;height:68px;object-fit:cover;border-radius:17px;border:1px solid #ffffff70;flex-shrink:0}
+.tile strong{display:block;font-size:16px;line-height:1.35}.tile small{display:block;color:#d5d9ef;margin-top:6px}
+.tile .arrow{margin-left:auto;color:#d9f5ff;font-size:25px}
+.music{grid-column:span 3;display:flex;flex-wrap:wrap;align-items:center;gap:15px}
+.music-art{width:66px;height:66px;display:grid;place-items:center;border-radius:18px;background:linear-gradient(135deg,#2a8cff,#8c5dff);font-size:29px}
+.music-info{flex:1;min-width:150px}.music-info strong{font-size:16px}.music-info small{color:#d5d9ef}
+.music-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+button{border:1px solid #ffffff70;color:white;background:#ffffff20;border-radius:999px;padding:11px 17px;font-weight:750;cursor:pointer}
+button:hover{background:#ffffff35}
+input[type=range]{width:115px;accent-color:#70dfff}
+footer{text-align:center;color:#bfc7e5;font-size:13px;padding:30px 10px}
+.welcome{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:18px;background:linear-gradient(135deg,rgba(7,9,28,.88),rgba(29,17,49,.82)),url("assets/welcome.png") center/cover}
+.welcome-card{width:min(510px,100%);padding:35px 28px;text-align:center;border:1px solid #ffffff9c;border-radius:34px;background:rgba(38,39,57,.67);backdrop-filter:blur(22px);box-shadow:0 25px 90px #0009}
+.welcome-card h2{font-size:clamp(30px,6vw,42px);margin:0 0 15px;background:linear-gradient(90deg,#fff,#7fdcff,#e6edb5);background-clip:text;color:transparent}
+.welcome-card h3{margin:0 0 22px;font-size:20px;line-height:1.45}
+.notice{padding:18px;border:1px solid #ffffff77;border-left:5px solid #68d7ff;border-radius:24px;text-align:left;line-height:1.55;color:#edf0fa;background:#ffffff12}
+.welcome-card p{color:#d9dced;font-style:italic;font-weight:700;margin:24px 0}
+.continue{min-width:210px;padding:15px 28px;font-size:17px;letter-spacing:1px;background:linear-gradient(100deg,#ffffff35,#ffffff19);border:1px solid #fff}
+.hidden{display:none!important}
+@media(max-width:720px){.tiles{grid-template-columns:1fr}.music{grid-column:span 1}.tile{min-height:112px}.hero{margin-top:12px;padding:28px 19px}.music-controls{width:100%;justify-content:space-between}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="space"><div id="stars"></div></div><div class="glow"></div>
+<section class="welcome" id="welcome">
+ <div class="welcome-card">
+  <h2>ĐẠI PROJECT</h2>
+  <h3>Xin Chào Bạn Đã Vào Website<br>Của <span style="color:#73d7ff">Đại Project</span></h3>
+  <div class="notice">Nếu bạn mở link trên TikTok thì hãy chọn mở bằng trình duyệt Chrome / Safari để tiếp tục. Nếu trang đã mở bằng trình duyệt sẵn thì bạn có thể tiếp tục.</div>
+  <p>Xin cảm ơn...</p>
+  <button class="continue" id="continueBtn">TIẾP TỤC</button>
+ </div>
+</section>
+<header><div class="brand"><img src="assets/dai-avatar.jpg" alt="Đại Project">ĐẠI PROJECT</div></header>
+<main>
+ <section class="hero">
+  <img class="hero-logo" src="assets/dai-avatar.jpg" alt="Avatar Đại Project">
+  <h1>Đại Project <span class="verified">✓</span></h1>
+  <p class="tagline">Cần Gì Bạn Cứ Tìm Nhé</p>
+  <nav class="socials" aria-label="Mạng xã hội">
+   <a class="social" href="https://t.me/@Daiproject" target="_blank" rel="noopener"><span class="ico tg">➤</span>Telegram</a>
+   <a class="social" href="https://www.tiktok.com/@daiproject2k?_r=1&_t=ZS-9BTqT37gA3m" target="_blank" rel="noopener"><span class="ico tt">♪</span>TikTok</a>
+   <a class="social" href="https://www.facebook.com/share/1A2Jtu2516/" target="_blank" rel="noopener"><span class="ico fb">f</span>Facebook</a>
+  </nav>
+ </section>
+ <h2 class="section-title">Kết nối cùng Đại Project</h2>
+ <section class="tiles">
+  <a class="tile" href="https://t.me/@Daiproject" target="_blank" rel="noopener">
+   <img src="assets/bot-buff.jpg" alt="Bot Buff 200 Like Free">
+   <span><strong>Bot Buff 200 Like Free</strong><small>Truy cập Telegram</small></span><span class="arrow">›</span>
+  </a>
+  <a class="tile" href="https://t.me/@Daiproject" target="_blank" rel="noopener">
+   <img src="assets/group-buff.jpg" alt="Group Buff Like Free">
+   <span><strong>GROUP BUFF LIKE FREE</strong><small>Tham gia nhóm</small></span><span class="arrow">›</span>
+  </a>
+  <a class="tile" href="https://www.facebook.com/share/1A2Jtu2516/" target="_blank" rel="noopener">
+   <div class="music-art" style="background:linear-gradient(135deg,#1877f2,#63a7ff)">f</div>
+   <span><strong>Facebook Đại Project</strong><small>Theo dõi Facebook</small></span><span class="arrow">›</span>
+  </a>
+  <a class="tile" href="https://www.tiktok.com/@daiproject2k?_r=1&_t=ZS-9BTqT37gA3m" target="_blank" rel="noopener">
+   <div class="music-art" style="background:linear-gradient(135deg,#171717,#ff397d)">♪</div>
+   <span><strong>TikTok Đại Project</strong><small>Xem TikTok</small></span><span class="arrow">›</span>
+  </a>
+  <a class="tile" href="https://t.me/@Daiproject" target="_blank" rel="noopener">
+   <div class="music-art" style="background:linear-gradient(135deg,#159bd7,#63ddff)">➤</div>
+   <span><strong>Telegram Đại Project</strong><small>Nhắn tin Telegram</small></span><span class="arrow">›</span>
+  </a>
+  <div class="tile music">
+   <div class="music-art">♫</div>
+   <div class="music-info"><strong>Nhạc nền — STRUCT (Slowed)</strong><small>Ô số 6 · Nhạc của website</small></div>
+   <div class="music-controls">
+    <button id="playBtn" type="button">▶ Phát nhạc</button>
+    <label for="volume" style="font-size:13px">Âm lượng</label>
+    <input id="volume" type="range" min="0" max="1" step="0.01" value="0.45">
+   </div>
+   <audio id="bgMusic" src="assets/music.m4a" preload="auto" loop></audio>
+  </div>
+ </section>
+</main>
+<footer>© <span id="year"></span> ĐẠI PROJECT · Cảm ơn bạn đã ghé thăm</footer>
+<script>
+const audio=document.getElementById('bgMusic');
+const playBtn=document.getElementById('playBtn');
+const volume=document.getElementById('volume');
+audio.volume=Number(volume.value);
+function syncButton(){playBtn.textContent=audio.paused?'▶ Phát nhạc':'Ⅱ Dừng nhạc'}
+async function startMusic(){try{await audio.play();syncButton()}catch(e){syncButton()}}
+document.getElementById('continueBtn').addEventListener('click',()=>{
+ document.getElementById('welcome').classList.add('hidden');
+ startMusic();
+});
+playBtn.addEventListener('click',async()=>{if(audio.paused)await startMusic();else{audio.pause();syncButton()}});
+volume.addEventListener('input',()=>{audio.volume=Number(volume.value)});
+audio.addEventListener('play',syncButton);audio.addEventListener('pause',syncButton);
+document.getElementById('year').textContent=new Date().getFullYear();
+// Subtle space parallax follows touch/mouse movement.
+let px=0,py=0;
+function moveSpace(x,y){const dx=(x/innerWidth-.5)*18,dy=(y/innerHeight-.5)*18;document.getElementById('space').style.transform=`translate3d(${dx}px,${dy}px,0) scale(1.08)`}
+window.addEventListener('pointermove',e=>moveSpace(e.clientX,e.clientY),{passive:true});
+window.addEventListener('touchmove',e=>{if(e.touches[0])moveSpace(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+window.addEventListener('deviceorientation',e=>{if(e.gamma!==null&&e.beta!==null){const dx=Math.max(-12,Math.min(12,e.gamma/4)),dy=Math.max(-12,Math.min(12,e.beta/5));document.getElementById('space').style.transform=`translate3d(${dx}px,${dy}px,0) scale(1.08)`}});
+</script>
+</body>
+</html>
